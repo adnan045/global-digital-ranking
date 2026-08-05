@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>GDR CRM — Lead command center</title>
+  <link rel="stylesheet" href="assets/admin.css">
+</head>
+<body class="admin-body">
+  <section class="login-view" id="login-view">
+    <div class="login-card">
+      <a class="admin-brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>GLOBAL DIGITAL RANKING<small>CRM / PRIVATE AREA</small></span></a>
+      <p class="admin-eyebrow">Lead command center</p>
+      <h1>Keep every opportunity moving.</h1>
+      <p class="admin-muted">Sign in to view new growth-audit requests, qualify leads and keep follow-ups in one place.</p>
+      <form id="login-form" class="admin-form" novalidate>
+        <label>Email<input id="login-email" type="email" autocomplete="username" placeholder="you@yourdomain.com" required></label>
+        <label>Password<input id="login-password" type="password" autocomplete="current-password" placeholder="Your Supabase Auth password" required></label>
+        <button class="admin-button admin-button-primary" type="submit">Open CRM <span>↗</span></button>
+      </form>
+      <p class="admin-error" id="login-error" role="alert"></p>
+      <p class="admin-footnote">First setup: create one email/password user in Supabase Authentication, then add the environment variables listed in the README.</p>
+    </div>
+  </section>
+
+  <section class="app-view" id="app-view" hidden>
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <a class="admin-brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>GLOBAL DIGITAL RANKING<small>CRM / LEAD COMMAND CENTER</small></span></a>
+        <div class="admin-header-actions"><span class="connection-dot" id="connection-dot"></span><span id="connection-label">Checking connection…</span><button class="admin-button admin-button-ghost" id="logout-button" type="button">Log out</button></div>
+      </div>
+    </header>
+    <main class="admin-main">
+      <div class="admin-heading"><div><p class="admin-eyebrow">Pipeline / overview</p><h1>Your growth inbox.</h1><p class="admin-muted">Every form submission, one clear next action.</p></div><div class="admin-heading-actions"><button class="admin-button admin-button-ghost" id="add-lead-button" type="button">+ Add prospect</button><a class="admin-button admin-button-primary" href="contact.html" target="_blank">Preview enquiry form <span>↗</span></a></div></div>
+      <div class="stat-grid" id="stat-grid"><div class="stat-card"><span>Total leads</span><strong>—</strong></div><div class="stat-card"><span>New</span><strong>—</strong></div><div class="stat-card"><span>Hot priority</span><strong>—</strong></div><div class="stat-card"><span>Won</span><strong>—</strong></div></div>
+      <section class="lead-panel">
+        <div class="panel-toolbar"><div class="search-wrap"><span>⌕</span><input id="search-input" type="search" placeholder="Search company, name or email"></div><select id="status-filter" aria-label="Filter by status"><option value="all">All statuses</option><option value="new">New</option><option value="contacted">Contacted</option><option value="qualified">Qualified</option><option value="proposal">Proposal</option><option value="won">Won</option><option value="lost">Lost</option></select><select id="priority-filter" aria-label="Filter by priority"><option value="all">All priorities</option><option value="hot">Hot</option><option value="warm">Warm</option><option value="cold">Cold</option></select><button class="admin-button admin-button-ghost" id="export-button" type="button">Export CSV</button><button class="admin-button admin-button-ghost" id="refresh-button" type="button">Refresh</button></div>
+        <div class="lead-count" id="lead-count">Loading leads…</div>
+        <div class="lead-list" id="lead-list"></div>
+        <div class="empty-state" id="empty-state" hidden><div class="empty-icon">✦</div><h2>No leads here yet.</h2><p>When someone requests an audit, they’ll appear in this command center.</p><a class="admin-button admin-button-primary" href="contact.html" target="_blank">Open the form <span>↗</span></a></div>
+      </section>
+    </main>
+  </section>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head"><div><p class="admin-eyebrow">Lead detail</p><h2 id="modal-title">Update lead</h2></div><button class="close-button" id="close-modal" type="button" aria-label="Close">×</button></div>
+      <div class="modal-summary" id="modal-summary"></div>
+      <form id="edit-form" class="admin-form edit-form" novalidate><input type="hidden" id="edit-id"><label>Contact name<input id="edit-name" type="text" placeholder="Owner or contact name" required></label><label>Work email<input id="edit-email" type="email" placeholder="hello@company.com" required></label><label>Company<input id="edit-company" type="text" placeholder="Company name" required></label><label>Website<input id="edit-website" type="url" placeholder="https://" required></label><label>Service<select id="edit-service" required><option value="Website & conversion">Website & conversion</option><option value="SEO & visibility">SEO & visibility</option><option value="Google Ads & paid growth">Google Ads & paid growth</option><option value="Not sure yet — I need a view">Not sure yet — I need a view</option></select></label><label>Status<select id="edit-status"><option value="new">New</option><option value="contacted">Contacted</option><option value="qualified">Qualified</option><option value="proposal">Proposal</option><option value="won">Won</option><option value="lost">Lost</option></select></label><label>Priority<select id="edit-priority"><option value="hot">Hot</option><option value="warm">Warm</option><option value="cold">Cold</option></select></label><label>Next follow-up<input id="edit-follow-up" type="date"></label><label class="full">Notes<textarea id="edit-notes" rows="5" placeholder="What is the next action?"></textarea></label><div class="modal-actions"><button class="admin-button admin-button-danger" id="delete-lead" type="button">Delete lead</button><button class="admin-button admin-button-primary" type="submit">Save changes <span>↗</span></button></div><p class="admin-error" id="edit-error" role="alert"></p></form>
+    </div>
+  </div>
+  <script src="assets/admin.js" defer></script>
+</body>
+</html>

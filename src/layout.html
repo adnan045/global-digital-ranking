@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/hero-orbit.png">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script type="application/ld+json">{{SCHEMA}}</script>
+  <title>{{TITLE}}</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell" id="top">
+    {{HEADER}}
+    <main id="main">
+      {{CONTENT}}
+    </main>
+    {{FOOTER}}
+  </div>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
