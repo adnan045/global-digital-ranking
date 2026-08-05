@@ -1,0 +1,6 @@
+# Local system files
+.DS_Store
+.vscode/
+
+# Local build cache
+.vercel/
