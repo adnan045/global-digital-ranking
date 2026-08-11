@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /admin.html
-Sitemap: https://globaldigitalranking.com/sitemap.xml
+Sitemap: https://global-digital-ranking.vercel.app/sitemap.xml
